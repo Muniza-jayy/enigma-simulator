@@ -2,21 +2,65 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build Enigma",
+      "label": "Build Enigma (Console)",
       "type": "shell",
       "command": "g++",
       "args": [
         "-std=c++17",
-        "-Wall", "-Wextra",
-        "src/*.cpp",
+        "-Wall",
+        "-Wextra",
+        
+        "src/Alphabet.cpp",
+        "src/Plugboard.cpp",
+        "src/Rotor.cpp",
+        "src/Reflector.cpp",
+        "src/EnigmaMachine.cpp",
+        "src/main.cpp",
         "-Iinclude",
-        "-o", "build/A1"
+        "-o",
+        "build/A1"
       ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": ["$gcc"]
+      "group": { "kind": "build" }
+    },
+    {
+      "label": "Build Enigma (GUI)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+          "-arch", "arm64",
+        "src/gui_main.cpp",
+        "src/Alphabet.cpp",
+        "src/Plugboard.cpp",
+        "src/Rotor.cpp",
+        "src/Reflector.cpp",
+        "src/EnigmaMachine.cpp",
+
+        "third_party/imgui/imgui.cpp",
+        "third_party/imgui/imgui_draw.cpp",
+        "third_party/imgui/imgui_widgets.cpp",
+        "third_party/imgui/imgui_tables.cpp",
+
+        "third_party/imgui/backends/imgui_impl_glfw.cpp",
+        "third_party/imgui/backends/imgui_impl_opengl3.cpp",
+
+        "-Iinclude",
+"-Ithird_party/imgui",
+"-Ithird_party/imgui/backends",
+"-I/opt/homebrew/opt/glfw/include",
+"-L/opt/homebrew/opt/glfw/lib",
+"-lglfw",
+"-framework","OpenGL",
+"-framework","Cocoa",
+"-framework","IOKit",
+"-framework","CoreVideo",
+"-o","build/enigma_gui"
+
+      ],
+      "group": { "kind": "build" }
+
     }
   ]
 }
