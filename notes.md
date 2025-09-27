@@ -1,5 +1,15 @@
 # Enigma Assignment – My Working Notes
 
+# Enigma Simulator (C++)
+
+A simple 3-rotor Enigma machine simulation with Plugboard, Rotors, Reflector, and stepping.
+
+## Build
+
+```bash
+g++ -std=c++17 -Wall -Wextra src/*.cpp -Iinclude -o build/A1
+
+
 ## Alphabet
 
 - c2i(char c) returns the index of a letter in the alphabet
@@ -60,3 +70,4 @@ I used an array 'wiring*[26]' inverse*[26] notch* position*.
 - Parse "AB CD ZF" -> { {'A','B'}, {'C','D'}, {'Z','F'} }
 - Build machine
 - Encrypt (same function decrypts if you reset positions to the same start)
+```
