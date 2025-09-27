@@ -8,7 +8,7 @@ A simple 3-rotor Enigma machine simulation with Plugboard, Rotors, Reflector, an
 
 ```bash
 g++ -std=c++17 -Wall -Wextra src/*.cpp -Iinclude -o build/A1
-
+or just press shift+command+b
 
 ## Alphabet
 
